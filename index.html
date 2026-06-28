@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lueek — Dictionary for Language Lovers</title>
+    <link rel="icon" type="image/png" href="fav.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <a class="logo-link" id="logoLink" href="#">
+        <img src="lueek.png" alt="Lueek" class="logo-img"
+             onerror="this.outerHTML='<div class=\'logo-text\'>L<em>ueek</em></div>'">
+    </a>
+    <p class="tagline">A minimal dictionary for curious minds</p>
+</header>
+
+<div class="search-wrap">
+    <div class="search-row">
+        <div class="pill" id="pill">
+            <input type="text" id="inp" placeholder="Search any word…"
+                   autocomplete="off" spellcheck="false" autofocus>
+            <button class="x-btn" id="xBtn" aria-label="Clear">✕</button>
+            <button class="go" id="goBtn" aria-label="Search">
+                <svg viewBox="0 0 24 24">
+                    <circle cx="11" cy="11" r="8"/>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                </svg>
+            </button>
+        </div>
+        <div class="lang-wrap">
+            <button class="lang-btn" id="langBtn">
+                <span id="langFlag">🔍</span>
+                <span id="langLbl">Auto</span>
+                <span class="dd-arrow">▼</span>
+            </button>
+            <div class="lang-dd" id="langDd"></div>
+        </div>
+    </div>
+    <div class="sug" id="sugBox"></div>
+</div>
+
+<div class="strip" id="histS"></div>
+<div class="strip" id="bkS"></div>
+
+<div class="res" id="res">
+
+    <div class="welc" id="welc">
+        <svg class="welc-icon" viewBox="0 0 64 64" fill="none">
+            <rect x="8" y="4" width="36" height="48" rx="3"
+                  stroke="var(--acc)" stroke-width="3" fill="var(--acc-t)"/>
+            <rect x="20" y="12" width="36" height="48" rx="3"
+                  stroke="var(--acc)" stroke-width="3" fill="var(--surf)"/>
+            <line x1="28" y1="24" x2="48" y2="24"
+                  stroke="var(--acc2)" stroke-width="2" stroke-linecap="round"/>
+            <line x1="28" y1="32" x2="44" y2="32"
+                  stroke="var(--acc2)" stroke-width="2" stroke-linecap="round"/>
+            <line x1="28" y1="40" x2="40" y2="40"
+                  stroke="var(--acc2)" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <h2>Start exploring words</h2>
+        <p>Search in any language — Lueek auto-detects and shows
+           definitions, translations, pronunciations, and more.</p>
+    </div>
+
+    <div class="loader" id="ldr">
+        <div class="spin"></div>
+        <p>Fetching definition…</p>
+    </div>
+
+    <div class="err" id="errC">
+        <svg class="err-icon" viewBox="0 0 64 64" fill="none">
+            <circle cx="32" cy="32" r="26" stroke="var(--t3)"
+                    stroke-width="3" fill="var(--bg)"/>
+            <line x1="32" y1="18" x2="32" y2="36"
+                  stroke="var(--t3)" stroke-width="3" stroke-linecap="round"/>
+            <circle cx="32" cy="44" r="2" fill="var(--t3)"/>
+        </svg>
+        <h3 id="errT">Word not found</h3>
+        <p id="errP">Check the spelling and try again.</p>
+    </div>
+
+    <div class="wc" id="wc">
+        <div class="wh" id="whEl"></div>
+        <div class="lang-tabs" id="langTabs"></div>
+        <div id="mcWrap"></div>
+        <div class="trans-panel" id="transPanel" style="display:none"></div>
+    </div>
+
+</div>
+
+<footer>
+    Powered by <a href="https://www.wiktionary.org/" target="_blank">Wiktionary</a>
+    (CC BY-SA) · TTS via Web Speech API
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
