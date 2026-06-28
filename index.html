@@ -11,8 +11,12 @@
 
 <header>
     <a class="logo-link" id="logoLink" href="#">
-        <img src="lueek.png" alt="Lueek" class="logo-img"
-             onerror="this.outerHTML='<div class=\'logo-text\'>L<em>ueek</em></div>'">
+        <img
+            src="lueek.png"
+            alt="Lueek"
+            class="logo-img"
+            onerror="this.outerHTML='<div class=\'logo-text\'>L<em>ueek</em></div>'"
+        >
     </a>
     <p class="tagline">A minimal dictionary for curious minds</p>
 </header>
@@ -20,8 +24,14 @@
 <div class="search-wrap">
     <div class="search-row">
         <div class="pill" id="pill">
-            <input type="text" id="inp" placeholder="Search any word…"
-                   autocomplete="off" spellcheck="false" autofocus>
+            <input
+                type="text"
+                id="inp"
+                placeholder="Search any word…"
+                autocomplete="off"
+                spellcheck="false"
+                autofocus
+            >
             <button class="x-btn" id="xBtn" aria-label="Clear">✕</button>
             <button class="go" id="goBtn" aria-label="Search">
                 <svg viewBox="0 0 24 24">
@@ -32,9 +42,9 @@
         </div>
         <div class="lang-wrap">
             <button class="lang-btn" id="langBtn">
-                <span id="langFlag">🔍</span>
+                <span id="langEmoji">🔍</span>
                 <span id="langLbl">Auto</span>
-                <span class="dd-arrow">▼</span>
+                <span class="arrow-dd">▼</span>
             </button>
             <div class="lang-dd" id="langDd"></div>
         </div>
@@ -42,11 +52,12 @@
     <div class="sug" id="sugBox"></div>
 </div>
 
-<div class="strip" id="histS"></div>
-<div class="strip" id="bkS"></div>
+<div class="strip" id="histStrip"></div>
+<div class="strip" id="bkStrip"></div>
 
 <div class="res" id="res">
 
+    <!-- Welcome -->
     <div class="welc" id="welc">
         <svg class="welc-icon" viewBox="0 0 64 64" fill="none">
             <rect x="8" y="4" width="36" height="48" rx="3"
@@ -65,15 +76,17 @@
            definitions, translations, pronunciations, and more.</p>
     </div>
 
+    <!-- Loader -->
     <div class="loader" id="ldr">
         <div class="spin"></div>
         <p>Fetching definition…</p>
     </div>
 
+    <!-- Error -->
     <div class="err" id="errC">
         <svg class="err-icon" viewBox="0 0 64 64" fill="none">
-            <circle cx="32" cy="32" r="26" stroke="var(--t3)"
-                    stroke-width="3" fill="var(--bg)"/>
+            <circle cx="32" cy="32" r="26"
+                    stroke="var(--t3)" stroke-width="3" fill="var(--bg)"/>
             <line x1="32" y1="18" x2="32" y2="36"
                   stroke="var(--t3)" stroke-width="3" stroke-linecap="round"/>
             <circle cx="32" cy="44" r="2" fill="var(--t3)"/>
@@ -82,6 +95,7 @@
         <p id="errP">Check the spelling and try again.</p>
     </div>
 
+    <!-- Word Card -->
     <div class="wc" id="wc">
         <div class="wh" id="whEl"></div>
         <div class="lang-tabs" id="langTabs"></div>
@@ -92,10 +106,11 @@
 </div>
 
 <footer>
-    Powered by <a href="https://www.wiktionary.org/" target="_blank">Wiktionary</a>
+    Powered by
+    <a href="https://www.wiktionary.org/" target="_blank">Wiktionary</a>
     (CC BY-SA) · TTS via Web Speech API
 </footer>
 
-<script src="script.js"></script>
+<script src="app.js"></script>
 </body>
 </html>
