@@ -11,33 +11,22 @@
 
 <header>
     <a class="logo-link" id="logoLink" href="#">
-        <img
-            src="lueek.png"
-            alt="Lueek"
-            class="logo-img"
-            onerror="this.outerHTML='<div class=\'logo-text\'>L<em>ueek</em></div>'"
-        >
+        <img src="lueek.png" alt="Lueek" class="logo-img"
+             onerror="this.outerHTML='<div class=\'logo-text\'>L<em>ueek</em></div>'">
     </a>
     <p class="tagline">A minimal dictionary for curious minds</p>
 </header>
 
+<!-- ═══ SEARCH ═══ -->
 <div class="search-wrap">
     <div class="search-row">
         <div class="pill" id="pill">
-            <input
-                type="text"
-                id="inp"
-                placeholder="Search any word…"
-                autocomplete="off"
-                spellcheck="false"
-                autofocus
-            >
+            <input type="text" id="inp" placeholder="Search any word…"
+                   autocomplete="off" spellcheck="false" autofocus>
             <button class="x-btn" id="xBtn" aria-label="Clear">✕</button>
             <button class="go" id="goBtn" aria-label="Search">
-                <svg viewBox="0 0 24 24">
-                    <circle cx="11" cy="11" r="8"/>
-                    <line x1="21" y1="21" x2="16.65" y2="16.65"/>
-                </svg>
+                <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
             </button>
         </div>
         <div class="lang-wrap">
@@ -55,9 +44,9 @@
 <div class="strip" id="histStrip"></div>
 <div class="strip" id="bkStrip"></div>
 
+<!-- ═══ RESULTS ═══ -->
 <div class="res" id="res">
 
-    <!-- Welcome -->
     <div class="welc" id="welc">
         <svg class="welc-icon" viewBox="0 0 64 64" fill="none">
             <rect x="8" y="4" width="36" height="48" rx="3"
@@ -76,39 +65,71 @@
            definitions, translations, pronunciations, and more.</p>
     </div>
 
-    <!-- Loader -->
-    <div class="loader" id="ldr">
-        <div class="spin"></div>
-        <p>Fetching definition…</p>
-    </div>
+    <div class="loader" id="ldr"><div class="spin"></div><p>Fetching definition…</p></div>
 
-    <!-- Error -->
     <div class="err" id="errC">
         <svg class="err-icon" viewBox="0 0 64 64" fill="none">
-            <circle cx="32" cy="32" r="26"
-                    stroke="var(--t3)" stroke-width="3" fill="var(--bg)"/>
-            <line x1="32" y1="18" x2="32" y2="36"
-                  stroke="var(--t3)" stroke-width="3" stroke-linecap="round"/>
+            <circle cx="32" cy="32" r="26" stroke="var(--t3)" stroke-width="3" fill="var(--bg)"/>
+            <line x1="32" y1="18" x2="32" y2="36" stroke="var(--t3)" stroke-width="3" stroke-linecap="round"/>
             <circle cx="32" cy="44" r="2" fill="var(--t3)"/>
         </svg>
         <h3 id="errT">Word not found</h3>
         <p id="errP">Check the spelling and try again.</p>
     </div>
 
-    <!-- Word Card -->
     <div class="wc" id="wc">
         <div class="wh" id="whEl"></div>
         <div class="lang-tabs" id="langTabs"></div>
         <div id="mcWrap"></div>
-        <div class="trans-panel" id="transPanel" style="display:none"></div>
     </div>
+</div>
 
+<!-- ═══ TRANSLATE BOX (always visible) ═══ -->
+<div class="tbox-wrap" id="tboxWrap">
+    <div class="tbox">
+        <div class="tbox-header">
+            <svg viewBox="0 0 24 24" class="tbox-icon"><path d="M12.87 15.07l-2.54-2.51.03-.03A17.52 17.52 0 0014.07 6H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"/></svg>
+            <span>Translate</span>
+        </div>
+        <div class="tbox-body">
+            <div class="tbox-col">
+                <div class="tbox-lang-row">
+                    <select id="tFromLang" class="tbox-select"></select>
+                </div>
+                <textarea id="tInput" class="tbox-input" placeholder="Type or paste text…" rows="3"></textarea>
+            </div>
+            <button class="tbox-swap" id="tSwap" title="Swap languages">
+                <svg viewBox="0 0 24 24"><path d="M7.5 21L3 16.5m0 0L7.5 12M3 16.5h13.5m0-9L21 12m0 0l-4.5 4.5M21 12H7.5"
+                     stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="tbox-col">
+                <div class="tbox-lang-row">
+                    <select id="tToLang" class="tbox-select"></select>
+                </div>
+                <div class="tbox-output" id="tOutput">
+                    <span class="tbox-placeholder">Translation will appear here</span>
+                </div>
+            </div>
+        </div>
+        <div class="tbox-footer">
+            <button class="tbox-btn" id="tBtn">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+                     stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="22" y1="2" x2="11" y2="13"/>
+                    <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                </svg>
+                Translate
+            </button>
+            <span class="tbox-powered">Powered by Lingva Translate</span>
+        </div>
+    </div>
 </div>
 
 <footer>
     Powered by
-    <a href="https://www.wiktionary.org/" target="_blank">Wiktionary</a>
-    (CC BY-SA) · TTS via Web Speech API
+    <a href="https://www.wiktionary.org/" target="_blank">Wiktionary</a> (CC BY-SA) ·
+    Translations by <a href="https://github.com/thedaviddelta/lingva-translate" target="_blank">Lingva</a> ·
+    TTS via Web Speech API
 </footer>
 
 <script src="app.js"></script>
